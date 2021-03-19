@@ -9,14 +9,20 @@ repositories {
 }
 
 dependencies {
-  compile 'com.typesafe.akka:akka-actor-typed_2.13:2.6.13'
-  compile 'ch.qos.logback:logback-classic:1.2.3'
-  testCompile 'com.typesafe.akka:akka-actor-testkit-typed_2.13:2.6.13'
-  testCompile 'junit:junit:4.13.1'
+    implementation 'org.projectlombok:lombok:1.18.18'
+    implementation 'org.projectlombok:lombok:1.18.18'
+    compile 'com.typesafe.akka:akka-actor-typed_2.13:2.6.13'
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+    testCompileOnly 'org.projectlombok:lombok:1.18.16'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
+    testCompile 'com.typesafe.akka:akka-actor-testkit-typed_2.13:2.6.13'
+    testCompile 'junit:junit:4.13.1'
 }
 
 mainClassName = "com.example.AkkaQuickstart"
 
 run {
-  standardInput = System.in
+    standardInput = System.in
 }
