@@ -1,5 +1,7 @@
 package com.toy.functional.defined;
 
+import com.toy.functional.example.DataUtil;
+import com.toy.functional.example.LoginUser;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
@@ -57,13 +59,13 @@ public class FunctionTest {
         assertEquals(123789008080L, doubleToLongFunction.applyAsLong(123789008080.456D));
     }
 
-//    @Test
-//    public void Function_combine_TwoFunctions() {
-//        Function<LoginUser, String> getUser = LoginUser::getUserName;
-//        Function<String, String> toUpper = String::toUpperCase;
-//        Function<LoginUser, String> userNameMustBeUppercase = getUser.andThen(toUpper);
-//        assertEquals("MARY", userNameMustBeUppercase.apply(DataUtil.buildToLoginUser("Mary", "pwd123")));
-//    }
+    @Test
+    public void Function_combine_TwoFunctions() {
+        Function<LoginUser, String> getUser = LoginUser::getUserName;
+        Function<String, String> toUpper = String::toUpperCase;
+        Function<LoginUser, String> userNameMustBeUppercase = getUser.andThen(toUpper);
+        assertEquals("MARY", userNameMustBeUppercase.apply(DataUtil.buildLoginUser("Mary", "pwd123")));
+    }
 
     @Test
     public void Function_convertStringToInteger_via_methodReference() {
